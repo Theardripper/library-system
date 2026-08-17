@@ -4,8 +4,10 @@ import com.library.api.model.User;
 import com.library.api.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
 
 @AllArgsConstructor
+@Service
 public class AuthService {
 
     private final UserRepository userRepository;
