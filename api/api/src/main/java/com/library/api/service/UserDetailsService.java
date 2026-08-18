@@ -1,7 +1,6 @@
 package com.library.api.service;
 
 import com.library.api.repository.UserRepository;
-import com.library.api.util.SecurityUser;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
