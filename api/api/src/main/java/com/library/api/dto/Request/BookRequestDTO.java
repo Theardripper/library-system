@@ -1,43 +1,53 @@
 package com.library.api.dto.Request;
 
 public class BookRequestDTO {
-    private Long id;
+
     private String name;
     private String author;
     private String year;
     private String synopis;
     private String edition;
 
-    public BookRequestDTO(Long id, String name, String author, String year, String synopis, String edition){
-        this.id = id;
-        this.name = name;
-        this.author = author;
-        this.year = year;
-        this.synopis = synopis;
-        this.edition = edition;
-    }
 
-    public Long getId() {
-        return id;
-    }
+    // getters and setters
 
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getAuthor() {
         return author;
     }
 
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
     public String getYear() {
         return year;
+    }
+
+    public void setYear(String year) {
+        this.year = year;
     }
 
     public String getSynopis() {
         return synopis;
     }
 
+    public void setSynopis(String synopis) {
+        this.synopis = synopis;
+    }
+
     public String getEdition() {
         return edition;
+    }
+
+    public void setEdition(String edition) {
+        this.edition = edition;
     }
 }
