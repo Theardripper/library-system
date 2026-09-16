@@ -7,6 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.config.ConfigDataResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class BookServiceImpl implements BookService{
 
@@ -30,10 +33,18 @@ public class BookServiceImpl implements BookService{
         return toResponseDTO(saved);
     }
 
+    @Override
     public BookResponseDTO findById(Long id){
         Book book = bookRepository.findById(id)
                 .orElseThrow(() -> new ConfigDataResourceNotFoundException("Livro não encontrado com id"));
         return toResponseDTO(book);
+    }
+
+    public List<BookResponseDTO> listAll(){
+        return bookRepository.findAll()
+                .stream()
+                .map(this::toResponseDTO)
+                .collect(Collectors.toUnmodifiableList());
     }
 
     private BookResponseDTO toResponseDTO(Book book){
