@@ -2,6 +2,7 @@ package com.library.api.service;
 
 import com.library.api.dto.Request.BookRequestDTO;
 import com.library.api.dto.Response.BookResponseDTO;
+import com.library.api.exception.ResourceNotFoundException;
 import com.library.api.model.Book;
 import com.library.api.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,6 +64,7 @@ public class BookServiceImpl implements BookService{
         return toResponseDTO(updated);
     }
 
+    @Override
     public void delete(Long id){
         if (!bookRepository.existsById(id)){
             throw new ResourceNotFoundException("Livro não encontrado com id " + id);
@@ -80,5 +82,4 @@ public class BookServiceImpl implements BookService{
                 book.getEdition()
         );
     }
-
 }
