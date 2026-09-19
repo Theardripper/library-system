@@ -31,7 +31,16 @@ public class BookController {
     public ResponseEntity<BookResponseDTO> create(@Valid @RequestBody BookRequestDTO dto){
         BookResponseDTO created = bookService.create(dto);
         return ResponseEntity.status(HttpStatus.CREATED).body(created);
+    }
 
+    @GetMapping
+    public ResponseEntity<List<BookResponseDTO>> list(){
+        return ResponseEntity.ok(bookService.findAll());
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<BookResponseDTO> findById(@PathVariable Long id){
+        return ResponseEntity.ok(bookService.findById(id));
     }
 
 
