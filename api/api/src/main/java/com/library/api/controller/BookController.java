@@ -43,6 +43,10 @@ public class BookController {
         return ResponseEntity.ok(bookService.findById(id));
     }
 
+    public ResponseEntity<BookResponseDTO> update(@PathVariable Long id, @Valid @RequestBody BookRequestDTO dto){
+        return ResponseEntity.ok(bookService.update(id, dto));
+    }
+
 
 
 
